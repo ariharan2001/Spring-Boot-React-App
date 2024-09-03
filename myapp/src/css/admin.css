@@ -1,0 +1,22 @@
+
+.date-dropdown{
+    padding: 5px;
+    border-bottom: 1px solid black;
+  }
+
+.record-con{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.record-con .flex-item{
+    margin: 10px;
+    width: fit-content;
+}
+
+.empty{
+    color: black;
+    text-align: center;
+}

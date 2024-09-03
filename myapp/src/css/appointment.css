@@ -1,0 +1,48 @@
+
+  
+  .flex-con{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    top: 0px;
+    gap: 0.5rem;
+    padding: 1rem 1rem 0rem 1rem;
+    border-radius: 5px;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.2);
+    width: 30%;
+  }
+  
+  .flex-item input, .flex-item select, .flex-item button{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+    width: 100%;
+    margin: 0.5rem 1rem;
+  }
+
+  .flex-item{
+    display: flex;
+    gap: 1rem;
+    padding: 5px;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .submit{
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(111, 181, 181);
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .error{
+    color: red;
+    font-size: 13px;
+    text-align: center;
+  }
+  

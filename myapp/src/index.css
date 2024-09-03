@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+ 
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.bg-pic{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background-image: url('https://wallpaperaccess.com/full/136995.jpg');
+    /* background-image: url('./pics/pic4.avif'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.empty-bg-pic{
+  width: 35%;
+  height: 82%;
+  background-image: url('./pics/empty_data_pic.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.empty-bg-rec{
+  width: 5rem;
+  height: 5rem;
+  background-image: url('./pics/empty_data_pic.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hide{
+  display: none;
+}
+
+

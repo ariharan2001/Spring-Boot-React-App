@@ -1,0 +1,20 @@
+body {
+    /* background-image: url('https://wallpaperaccess.com/full/136995.jpg'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+  }
+
+body:has(.user-page){
+    /* background-image: url('https://wallpaperaccess.com/full/136995.jpg'); */
+}
+
+body:has(.ratings){
+    /* background-image: url('../pics/pic3.jpeg'); */
+    /* background: #78a5da; */
+}
+
+body:has(.record-con){
+    /* background-image: url('../pics/pic2.jpeg'); */
+    /* background: #78a5da; */
+}

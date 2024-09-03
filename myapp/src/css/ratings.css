@@ -1,0 +1,35 @@
+.ratings-container{
+    display: block;
+    width: fit-content;
+}
+
+.rating-info{
+    text-indent: 20px;
+    /* display: flex;
+    justify-content: space-between; */
+    
+}
+
+.star-filled{
+    color: #ffc107;
+}
+
+.rating-div::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in WebKit-based browsers (e.g., Chrome, Safari) */
+}
+
+.rating-div{
+    box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.2);
+
+}
+
+.rating-sub-div{
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.rating-sub-div:hover{
+    /* border: 2px solid #1d0f63; */
+    box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.2);
+}
