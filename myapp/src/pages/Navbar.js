@@ -1,7 +1,6 @@
 
-import { height, width } from '@fortawesome/free-solid-svg-icons/fa0';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../css/navbar.css"
 
@@ -25,7 +24,7 @@ function Navbar() {
     useEffect(()=>{
 
         if(appointment){
-            axios.get("http://localhost:8080/getrecords", {params:{ email:email}, headers:{'Authorization': token } }).then((response)=>{
+            axios.get(`${process.env.REACT_APP_API_URL}/getrecords`, {params:{ email:email}, headers:{'Authorization': token } }).then((response)=>{
                 console.log(response.data)
                 setRecord(response.data)
             })

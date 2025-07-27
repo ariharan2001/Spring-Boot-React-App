@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../css/bgpic.css"
 import "../css/homepage.css"
 import Button from "../component/Button";
@@ -11,7 +11,6 @@ const HomePage = () => {
     const userType = localStorage.getItem("userType")
 
     const [form, setForm] = useState(false);
-    const [user, setUser] = useState(userType);
 
     const handleClick = () => {
         setForm(true);
@@ -41,23 +40,6 @@ const HomePage = () => {
     }</>
     )
 
-}
-
-const styles = {
-    headSlog : {
-        fontSize: '30px',
-        color: 'white',
-        margin: '0px',
-        marginTop: '8rem',
-        marginLeft: '5rem'
-    },
-    subSlog : {
-        marginLeft: '5rem',
-        marginTop: '2rem',
-        width: '30%',
-        color: 'white',
-
-    }
 }
 
 export default HomePage;
@@ -96,7 +78,7 @@ export default HomePage;
 //         e.preventDefault();
 
 //         if(validate())
-//             axios.post("http://localhost:8080/insertrecord", value).then((data)=>{
+//             axios.post(`${process.env.REACT_APP_API_URL}/insertrecord`, value).then((data)=>{
 //                 console.log(data);
 
 //                 setSuccess(true);

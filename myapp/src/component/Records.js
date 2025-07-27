@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react";
+import { useEffect,useState } from "react";
 import axios from "axios";
 import "../css/admin.css"
 import UserIcon from "./UserIcon";
@@ -17,8 +17,8 @@ const Records = () => {
 
     useEffect(() => {
 
-        if(record.length == 0)
-            axios.get("http://localhost:8080/getallrecords", {headers:{'Authorization': token }}).then((response)=>{
+        if(record.length === 0)
+            axios.get(`${process.env.REACT_APP_API_URL}/getallrecords`, {headers:{'Authorization': token }}).then((response)=>{
                 console.log(response);
                 setRecord([...response.data])
                 console.log(record)
@@ -28,7 +28,7 @@ const Records = () => {
 
     function changeStatus(status){
 
-        axios.post("http://localhost:8080/updatestatus", {...data, status: status} ,{headers:{'Authorization': token }}).then((response)=>{
+        axios.post(`${process.env.REACT_APP_API_URL}/updatestatus`, {...data, status: status} ,{headers:{'Authorization': token }}).then((response)=>{
             console.log("update status successfull");
             setClose(true);
         })
@@ -78,15 +78,15 @@ const Records = () => {
                                     </div>
 
                                     <div style={{display:"flex", gap: "1rem"}}>
-                                        {item.status == "pending" && <div style={{fontSize:"0.9rem", padding: "8px", border:"0.5px solid orange", borderRadius:"1rem", background:"#FFFACD", color:"#FFA500"}}>
+                                        {item.status === "pending" && <div style={{fontSize:"0.9rem", padding: "8px", border:"0.5px solid orange", borderRadius:"1rem", background:"#FFFACD", color:"#FFA500"}}>
                                             {item.status}
                                         </div>}
 
-                                        {item.status == "approved" && <div style={{fontSize:"0.9rem", padding: "8px", border:"0.5px solid green", borderRadius:"1rem", background:"#90EE90", color:"#28a745"}}>
+                                        {item.status === "approved" && <div style={{fontSize:"0.9rem", padding: "8px", border:"0.5px solid green", borderRadius:"1rem", background:"#90EE90", color:"#28a745"}}>
                                             {item.status}
                                         </div>}
 
-                                        {item.status == "cancelled" && <div style={{fontSize:"0.9rem", padding: "8px", border:"0.5px solid red", borderRadius:"1rem", background:"#FFB6C1", color:"#DC3545"}}>
+                                        {item.status === "cancelled" && <div style={{fontSize:"0.9rem", padding: "8px", border:"0.5px solid red", borderRadius:"1rem", background:"#FFB6C1", color:"#DC3545"}}>
                                             {item.status}
                                         </div>}
 
@@ -100,7 +100,7 @@ const Records = () => {
                 }
                 
                 {
-                    record.filter((item) => item.admissiondate === date && item.slot === "morning" && (item.status === status1 || status1 === "all") ).length==0 && 
+                    record.filter((item) => item.admissiondate === date && item.slot === "morning" && (item.status === status1 || status1 === "all") ).length===0 && 
                         <div style={styles.empty}>
                             <div className="empty-bg-pic"></div>
                         </div>
@@ -134,15 +134,15 @@ const Records = () => {
                                     </div>
 
                                     <div style={{display:"flex", gap: "1rem"}}>
-                                        {item.status == "pending" && <div style={{fontSize:"0.9rem", padding: "8px", border:"0.5px solid orange", borderRadius:"1rem", background:"#FFFACD", color:"#FFA500"}}>
+                                        {item.status === "pending" && <div style={{fontSize:"0.9rem", padding: "8px", border:"0.5px solid orange", borderRadius:"1rem", background:"#FFFACD", color:"#FFA500"}}>
                                             {item.status}
                                         </div>}
 
-                                        {item.status == "approved" && <div style={{fontSize:"0.9rem", padding: "8px", border:"0.5px solid green", borderRadius:"1rem", background:"#90EE90", color:"#28a745"}}>
+                                        {item.status === "approved" && <div style={{fontSize:"0.9rem", padding: "8px", border:"0.5px solid green", borderRadius:"1rem", background:"#90EE90", color:"#28a745"}}>
                                             {item.status}
                                         </div>}
 
-                                        {item.status == "cancelled" && <div style={{fontSize:"0.9rem", padding: "8px", border:"0.5px solid red", borderRadius:"1rem", background:"#FFB6C1", color:"#DC3545"}}>
+                                        {item.status === "cancelled" && <div style={{fontSize:"0.9rem", padding: "8px", border:"0.5px solid red", borderRadius:"1rem", background:"#FFB6C1", color:"#DC3545"}}>
                                             {item.status}
                                         </div>}
 
@@ -156,7 +156,7 @@ const Records = () => {
                 }
                 
                 {
-                    record.filter((item) => item.admissiondate === date && item.slot === "evening" && (item.status === status2 || status2 === "all") ).length==0 && 
+                    record.filter((item) => item.admissiondate === date && item.slot === "evening" && (item.status === status2 || status2 === "all") ).length===0 && 
                         <div style={styles.empty}>
                             <div className="empty-bg-pic"></div>
                         </div>

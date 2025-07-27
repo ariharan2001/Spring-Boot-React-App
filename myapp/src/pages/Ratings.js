@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import "../css/ratings.css"
 import UserIcon from '../component/UserIcon';
 import Rating from './Rating';
@@ -14,7 +14,7 @@ const Ratings = () => {
 
   useEffect(() => {
 
-    axios.get("http://localhost:8080/getallrecords",{headers:{'Authorization': token }}).then((data) => {
+    axios.get(`${process.env.REACT_APP_API_URL}/getallrecords`,{headers:{'Authorization': token }}).then((data) => {
         setRecords(data.data)
         console.log(data)
     })
@@ -61,6 +61,7 @@ const Ratings = () => {
                         {item.comment}
                     </div>
                 </div>)
+                return <></>
                 })
                 }
 
@@ -127,7 +128,6 @@ const styles = {
         padding: "5px 2px"
     }
 }
-
 
 {/* <table className="ratings-container">
         {

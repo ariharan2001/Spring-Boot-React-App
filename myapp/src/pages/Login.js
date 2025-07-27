@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import "../css/Login.css"
@@ -24,7 +24,7 @@ function Login() {
             return;
         }
         
-        axios.post("http://localhost:8080/authenticate", {email: email, password: password}).then((response) => {
+        axios.post(`${process.env.REACT_APP_API_URL}/authenticate`, {email: email, password: password}).then((response) => {
 
             console.log(response.data.accessToken)
 
@@ -77,63 +77,5 @@ function Login() {
         </div>
     );
 }
-
-const styles = {
-    container: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-        backgroundColor: '#f4f4f4',
-    },
-    form: {
-        padding: '0rem 2rem 2rem 2rem',
-        borderRadius: '8px',
-        backgroundColor: '#fff',
-        boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-        width: '20%',
-    },
-    heading: {
-        margin: '0.5rem 0rem 0.5rem 0rem',
-        textAlign: 'center',
-    },
-    inputGroup: {
-        marginBottom: '1rem',
-        width: 'fit',
-        display: 'flex',
-        flexDirection: 'column'
-    },
-    label: {
-        display: 'block',
-        marginBottom: '0.5rem',
-    },
-    input: {
-        // width: '100%',
-        padding: '0.5rem',
-        borderRadius: '4px',
-        border: '1px solid #ccc',
-    },
-    button: {
-        width: '100%',
-        fontSize: "1rem",
-        marginTop: "0.5rem",
-        padding: '0.6rem',
-        backgroundColor: '#007bff',
-        color: '#fff',
-        border: 'none',
-        borderRadius: '4px',
-        cursor: 'pointer',
-    },
-    error: {
-        color: 'red',
-        marginBottom: '1rem',
-        textAlign: 'center',
-    },
-    forgot: {
-        marginTop: '1rem',
-        display: 'flex',
-        justifyContent: 'end'
-    }
-};
 
 export default Login;

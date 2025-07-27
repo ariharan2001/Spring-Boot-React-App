@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import '../css/success.css'; // Import your CSS styles
 
 function Success({ message = "Success! Your action was completed."}) {

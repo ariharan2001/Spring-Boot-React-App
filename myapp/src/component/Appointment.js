@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import "../css/appointment.css"
 import Success from "../pages/Success";
@@ -27,7 +27,7 @@ const Appointment = ({ setForm }) => {
         else if (value.mobile.length < 10 || value.mobile.length > 12) error_msg = "Invalid mobile number";
         
         setError(error_msg);
-        return error_msg == "";
+        return error_msg === "";
     }
 
 
@@ -36,7 +36,7 @@ const Appointment = ({ setForm }) => {
         e.preventDefault();
 
         if(validate())
-            axios.post("http://localhost:8080/insertrecord",value, {headers:{ 'Authorization': token } }).then((data)=>{
+            axios.post(`${process.env.REACT_APP_API_URL}/insertrecord`,value, {headers:{ 'Authorization': token } }).then((data)=>{
 
                 setSuccess(true);
                 setTimeout(() => {
@@ -79,9 +79,9 @@ const Appointment = ({ setForm }) => {
                     </div>
                     <div className="flex-item" style={{ display:"flex", justifyContent:"center"}}>
                         {/* <Button label="close" onClick={()=>{setForm(false)}} onHover={handleOnHover} onLeave={handleOnLeave} style={styles.closeButton} /> */}
-                        <Button label="submit" type="submit" style={{width:'100%', padding: '5px 10px', width:"50%" }} />
+                        <Button label="submit" type="submit" style={{padding: '5px 10px', width:"50%" }} />
                     </div>
-                    {error != "" && <span className="error" style={{paddingBottom:"10px"}}>{error}</span>}
+                    {error !== "" && <span className="error" style={{paddingBottom:"10px"}}>{error}</span>}
               
             </form>
 

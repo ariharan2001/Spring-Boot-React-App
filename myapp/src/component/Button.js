@@ -1,4 +1,3 @@
-import React from 'react';
 
 // Button component
 function Button({ label, onClick, onHover, onLeave, type = 'button', style, disabled = false }) {

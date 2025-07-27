@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Signup() {
@@ -28,7 +28,7 @@ function Signup() {
             return;
         }
 
-        axios.post("http://localhost:8080/signup",{username: username, email: email, password: password}).then((response) => {
+        axios.post(`${process.env.REACT_APP_API_URL}/signup`,{username: username, email: email, password: password}).then((response) => {
 
             console.log(response.data.accessToken)
             localStorage.setItem('token',JSON.stringify(response.data.accessToken));

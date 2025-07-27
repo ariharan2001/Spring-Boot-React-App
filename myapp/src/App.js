@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation, Navigate, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from 'react-router-dom';
 import HomePage from "./pages/HomePage";
 import Admin from "./pages/Admin";
 import Rating from './pages/Rating';

@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react";
+import { useEffect,useState } from "react";
 import axios from "axios";
 import "../css/admin.css"
 
@@ -12,8 +12,8 @@ const Admin = () => {
 
     useEffect(() => {
 
-        if(record.length == 0)
-            axios.get("http://localhost:8080/getallrecords", {headers:{'Authorization': token }}).then((response)=>{
+        if(record.length === 0)
+            axios.get(`${process.env.REACT_APP_API_URL}/getallrecords`, {headers:{'Authorization': token }}).then((response)=>{
                 console.log(response);
                 setRecord([...response.data])
                 console.log(record)
@@ -55,7 +55,7 @@ const Admin = () => {
                     
                         record.map((item) => {
                         
-                            if( item.admissiondate == date )
+                            if( item.admissiondate === date )
                                 return (<tr key={item.id}>
                                     <td>{item.id}</td>
                                     <td>{item.name}</td>
@@ -72,7 +72,7 @@ const Admin = () => {
                         
                     }
                     {
-                        record.filter((item) => item.admissiondate == date).length==0 && 
+                        record.filter((item) => item.admissiondate === date).length===0 && 
                         <tr>
                         <td colSpan="8" className="empty">No appointment is registered...</td>
                         </tr>

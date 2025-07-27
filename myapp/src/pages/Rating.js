@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import "../css/rating.css"
 import Success from './Success';
@@ -21,17 +21,17 @@ const Rating = ({ maxRating = 5, setIsOpen }) => {
 
   const handleSubmit = () => {
 
-    if(rating == 0){
+    if(rating === 0){
         setError("Rating must be set...")
         return;
     }
 
-    if(comment == ""){
+    if(comment === ""){
         setError("please leave comment...")
         return;
     }
 
-    axios.post("http://localhost:8080/updatereview", {email: email, review: rating, comment: comment},{headers:{'Authorization': token }}).then((data)=>{
+    axios.post(`${process.env.REACT_APP_API_URL}/updatereview`, {email: email, review: rating, comment: comment},{headers:{'Authorization': token }}).then((data)=>{
         console.log(data);
         if(data.data != null){
             setSuccess(true);
@@ -90,7 +90,7 @@ const Rating = ({ maxRating = 5, setIsOpen }) => {
       <div style={{width:"95%"}}>
         <textarea id="comment" name="comment" rows="6"  placeholder='Enter Your comment here...' style={{border:"1px solid rgba(0, 0, 0, 0.2)", width:"100%", padding: "1rem 0rem 0rem 1rem"}} onChange={(e)=>setComment(e.target.value)}>
         </textarea>
-        {error != "" && <span style={{fontSize:"0.8rem", color:"red", display:"flex", justifyContent:"center"}}>{error}</span>}
+        {error !== "" && <span style={{fontSize:"0.8rem", color:"red", display:"flex", justifyContent:"center"}}>{error}</span>}
       </div>
 
       
