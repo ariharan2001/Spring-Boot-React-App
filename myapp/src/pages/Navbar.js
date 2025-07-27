@@ -3,6 +3,7 @@ import { height, width } from '@fortawesome/free-solid-svg-icons/fa0';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import "../css/navbar.css"
 
 function Navbar() {
 
@@ -34,18 +35,18 @@ function Navbar() {
 
     return (
         <>
-        <nav style={styles.navbar}>
-            <h2 style={styles.title}>Xyz Hospitol Services</h2>
-            <ul style={styles.navLinks}>
-                <li style={styles.navItem}><a href="home" style={{ color: 'white', textDecoration: "none" }}>Home</a></li>
-                { userType === "user" && <li style={styles.navItem}><a href="javascript:void(0);" onClick={()=>setAppontment(!appointment)} style={{ color: 'white', textDecoration: "none" }}>Appointments</a></li>}
-                <li style={styles.navItem}><a href="ratings" style={{ color: 'white', textDecoration: "none" }}>Reviews</a></li>
-                <li style={styles.navItem}><a href="javascript:void(0);" onClick={handleLogOut} style={{ color: 'white', textDecoration: "none", marginRight:"1rem" }}>Logout</a></li>
+        <nav className='navbar'>
+            <h2 className='title'>Xyz Hospitol Services</h2>
+            <ul className='navLinks'>
+                <li className='navItem'><a href="home" style={{ color: 'white', textDecoration: "none" }}>Home</a></li>
+                { userType === "user" && <li className='navItem'><a href="javascript:void(0);" onClick={()=>setAppontment(!appointment)} style={{ color: 'white', textDecoration: "none" }}>Appointments</a></li>}
+                <li className='navItem'><a href="ratings" style={{ color: 'white', textDecoration: "none" }}>Reviews</a></li>
+                <li className='navItem'><a href="javascript:void(0);" onClick={handleLogOut} style={{ color: 'white', textDecoration: "none", marginRight:"1rem" }}>Logout</a></li>
             </ul>
         </nav>
         {
         appointment && userType === "user" &&
-                <div style={styles.box}>
+                <div className='box'>
                     {
                         record.map((item) => {
                             return(
@@ -74,35 +75,6 @@ function Navbar() {
 }
 
 const styles = {
-    navbar: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '5px',
-        backgroundColor: '#333',
-        color: 'white',
-    },
-    title: {
-        margin: '0',
-    },
-    navLinks: {
-        listStyleType: 'none',
-        display: 'flex',
-        gap: '1rem',
-    },
-    navItem: {
-        margin: '0',
-    },
-    box: {
-        position: "absolute",
-        top: "4rem",
-        zIndex: "1000",
-        right: 0,
-        width:"20rem",
-        // height:"15rem",
-        backgroundColor: "#f4f4f4",
-        borderRadius: "2px",
-    },
     empty: {
         display: "flex",
         justifyContent: "center",

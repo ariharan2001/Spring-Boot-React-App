@@ -44,7 +44,7 @@ const Records = () => {
     }
 
     return(
-        <div style={styles.recordCon}>
+        <div className="recordCon">
 
 
             <div style={styles.dateItem}>
@@ -172,14 +172,6 @@ const Records = () => {
 }
 
 const styles = {
-    recordCon: {
-        display: "flex",
-        flexDirection: "column",
-        width: "35%",
-        height: "100%",
-        background: "#f4f4f4",
-        overflowY: "auto"
-    },
     flexItem: {
         display: "flex",
         justifyContent: "space-between",

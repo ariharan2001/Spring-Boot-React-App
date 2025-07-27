@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import "../css/Login.css"
 
 function Login() {
 
@@ -44,34 +45,34 @@ function Login() {
     };
 
     return (
-        <div style={styles.container}>
-            <form onSubmit={handleSubmit} style={styles.form}>
-                <h2 style={styles.heading}>Login</h2>
+        <div className='container'>
+            <form onSubmit={handleSubmit} className='form'>
+                <h2 className='heading'>Login</h2>
                 
-                {error && <p style={styles.error}>{error}</p>}
+                {error && <p className='error'>{error}</p>}
                 
-                <div style={styles.inputGroup}>
-                    <label style={styles.label}>email:</label>
+                <div className='inputGroup'>
+                    <label className='label'>email:</label>
                     <input 
                         type="text" 
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        style={styles.input}
+                        className='input'
                     />
                 </div>
                 
-                <div style={styles.inputGroup}>
-                    <label style={styles.label}>Password:</label>
+                <div className='inputGroup'>
+                    <label className='label'>Password:</label>
                     <input 
                         type="password" 
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        style={styles.input}
+                        className='input'
                     />
                 </div>
                 
-                <button type="submit" style={styles.button}>Login</button>
-                <a href="/signup" style={styles.forgot}>Not registered?</a>
+                <button type="submit" className='button'>Login</button>
+                <a href="/signup" className='forgot'>Not registered?</a>
             </form>
         </div>
     );

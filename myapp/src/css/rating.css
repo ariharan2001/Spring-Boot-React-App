@@ -38,4 +38,9 @@
   }
 
 
+@media (max-width: 500px) {
+  .rating-container{
+    width: 70%;
+  }
+}
   

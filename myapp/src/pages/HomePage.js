@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import Success from "./Success";
+import React, { useState } from "react";
 import "../css/bgpic.css"
+import "../css/homepage.css"
 import Button from "../component/Button";
 import Appointment from "../component/Appointment";
 import Records from "../component/Records";
@@ -23,11 +22,11 @@ const HomePage = () => {
         userType ===  "user" ?
         <div className="bg-pic">
             
-            <p style={styles.headSlog}>
+            <p className="headSlog">
                 Medical Services <br/>
-                that you can trust
+                that you can trust :)
             </p>
-            <p style={styles.subSlog}>
+            <p className="subSlog">
                 At our clinic, we’re dedicated to providing exceptional care tailored to your needs. Whether it’s a routine check-up or specialized treatment, our experienced team is here to ensure you get the best care possible.
             </p>
 

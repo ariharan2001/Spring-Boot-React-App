@@ -1,13 +1,13 @@
-import React from 'react';
 import { useState } from 'react';
+import "../css/popup.css"
 
 const Popup = ({ data, onClose, changeStatus}) => {
 
   const [status, setStatus] = useState(data.status)
 
   return (
-    <div style={popupOverlayStyle}>
-        <div style={popupContentStyle}>
+    <div className='popupOverlayStyle'>
+        <div className='popupContentStyle'>
             <div style={{fontWeight:500}}>Update Appointment Status</div>
             <div style={{display:"flex", gap:"1rem", alignItems:"center"}}>
                 <span style={{width:"5rem", display: "flex", justifyContent:"flex-start"}}>Patient:</span>
@@ -54,27 +54,5 @@ const Popup = ({ data, onClose, changeStatus}) => {
   );
 };
 
-const popupOverlayStyle = {
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-};
-
-const popupContentStyle = {
-  backgroundColor: 'white',
-  padding: '20px',
-  borderRadius: '8px',
-  textAlign: 'center',
-  width:"25%",
-  display: "flex",
-  flexDirection: "column",
-  gap: "1rem"
-};
 
 export default Popup;

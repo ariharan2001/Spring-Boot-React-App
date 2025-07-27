@@ -29,7 +29,7 @@ const Ratings = () => {
   return (
     <div style={styles.ratings} className='bg-pic'>
 
-        <div style={styles.container} className='rating-div'>
+        <div className='rating-div'>
 
             <div style={{display:"flex", justifyContent:"space-between"}}>
                 <span style={{fontWeight:500}}> Reviews </span>
@@ -98,18 +98,6 @@ const Ratings = () => {
 export default Ratings;
 
 const styles = {
-    container: {
-        display: "flex",
-        flexDirection: "column",
-        backgroundColor: "white",
-        width: "35%",
-        height: "100%",
-        overflowY: "auto",
-        overflowX: "hidden",
-        padding: "1.5rem",
-        gap: "0.5rem",
-        boxSizing: "border-box"
-    },
     gridContainer: {
         width: "fit-content",
         // height: "100%",

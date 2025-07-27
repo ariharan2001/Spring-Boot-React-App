@@ -1,0 +1,30 @@
+.popupOverlayStyle{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(220, 209, 209, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popupContentStyle{
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width:25%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 100;
+}
+
+@media (max-width: 500px) {
+    .popupContentStyle{
+        width: 80%;
+    }
+}

@@ -19,8 +19,17 @@
 }
 
 .rating-div{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 35%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1.5rem;
+    gap: 0.5rem;
+    box-sizing: border-box;
     box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.2);
-
 }
 
 .rating-sub-div{
@@ -32,4 +41,10 @@
 .rating-sub-div:hover{
     /* border: 2px solid #1d0f63; */
     box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 500px) {
+    .rating-div{
+        width: 80%;
+    }
 }

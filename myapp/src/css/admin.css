@@ -2,7 +2,16 @@
 .date-dropdown{
     padding: 5px;
     border-bottom: 1px solid black;
-  }
+}
+
+.recordCon{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    height: 100%;
+    background: #f4f4f4;
+    overflow-y: auto;
+}
 
 .record-con{
     display: flex;
@@ -19,4 +28,10 @@
 .empty{
     color: black;
     text-align: center;
+}
+
+@media (max-width: 500px) {
+  .recordCon{
+    width: 90%;
+  }
 }
