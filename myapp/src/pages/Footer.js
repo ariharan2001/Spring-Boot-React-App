@@ -1,15 +1,15 @@
 
 function Footer() {
     return (
-        <footer style={styles.footer}>
-            <p>© 2024 My WebApp. All rights reserved.</p>
-        </footer>
+        <div style={styles.footer}>
+            © 2024 My Clinic Application. All rights reserved.
+        </div>
     );
 }
 
 const styles = {
     footer: {
-        padding: '0px',
+        padding: '5px',
         textAlign: 'center',
         backgroundColor: '#333',
         color: 'white',

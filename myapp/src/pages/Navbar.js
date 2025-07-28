@@ -3,10 +3,12 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../css/navbar.css"
+import Ratings from './Ratings';
 
 function Navbar() {
 
     const [appointment, setAppontment] = useState(false);
+    const [reviews, setReviews] = useState(false);
     const [record, setRecord] = useState([]);
 
     const email = localStorage.getItem('email');
@@ -38,9 +40,9 @@ function Navbar() {
             <h2 className='title'>Xyz Hospitol Services</h2>
             <ul className='navLinks'>
                 <li className='navItem'><a href="home" style={{ color: 'white', textDecoration: "none" }}>Home</a></li>
-                { userType === "user" && <li className='navItem'><a href="javascript:void(0);" onClick={()=>setAppontment(!appointment)} style={{ color: 'white', textDecoration: "none" }}>Appointments</a></li>}
-                <li className='navItem'><a href="ratings" style={{ color: 'white', textDecoration: "none" }}>Reviews</a></li>
-                <li className='navItem'><a href="javascript:void(0);" onClick={handleLogOut} style={{ color: 'white', textDecoration: "none", marginRight:"1rem" }}>Logout</a></li>
+                { userType === "user" && <li className='navItem'><a href="#" onClick={()=>setAppontment(!appointment)} style={{ color: 'white', textDecoration: "none" }}>Appointments</a></li>}
+                <li className='navItem'><a href="#" onClick={()=>setReviews(!reviews)} style={{ color: 'white', textDecoration: "none" }}>Reviews</a></li>
+                <li className='navItem'><a href="#" onClick={handleLogOut} style={{ color: 'white', textDecoration: "none", marginRight:"1rem" }}>Logout</a></li>
             </ul>
         </nav>
         {
@@ -49,10 +51,10 @@ function Navbar() {
                     {
                         record.map((item) => {
                             return(
-                                <div style={{display:"flex", justifyContent:"space-between",padding: "10px", background:"white",borderRadius:"5px", margin: "1rem", fontSize:"0.9rem"}}>
+                                <div style={{display:"flex", justifyContent:"space-between",padding: "10px", background:"white",borderRadius:"5px", margin: "1rem"}}>
                                     <div style={{display:"flex", flexDirection: "column"}}>
                                         <span>Id: {item.id}</span>
-                                        <span style={{fontSize:"0.8rem"}}>({item.admissiondate} / {item.slot})</span>
+                                        <span style={{}}>({item.admissiondate} / {item.slot})</span>
                                     </div>
                                     <div style={item.status === "pending" ? styles.pending : (item.status === "approved" ? styles.approved : styles.cancelled)}>
                                         {item.status}
@@ -68,6 +70,10 @@ function Navbar() {
                             </div>
                     }
                 </div>
+        }
+        {
+        reviews &&
+            <Ratings />
         }
         </>
     );

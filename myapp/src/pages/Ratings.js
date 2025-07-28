@@ -27,7 +27,7 @@ const Ratings = () => {
   }
   
   return (
-    <div style={styles.ratings} className='bg-pic'>
+    <div className='bg-pic ratings-container'>
 
         <div className='rating-div'>
 

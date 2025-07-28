@@ -10,6 +10,7 @@ const Records = () => {
     const [date, setDate] = useState(getCurrentDateFormatted());
     const [status1, setStatus1] = useState("all");
     const [status2, setStatus2] = useState("all");
+    const [slot, setSlot] = useState("morning")
     const [close, setClose] = useState(true);
     const [data, setData] = useState({});
 
@@ -47,12 +48,21 @@ const Records = () => {
         <div className="recordCon">
 
 
-            <div style={styles.dateItem}>
-                <input type="date" id="admission-date" name="date" value={date} onChange={(e) => setDate(e.target.value)} style={styles.date} />
+            <div className="dateItem">
+                <input type="date" id="admission-date" name="date" value={date} onChange={(e) => setDate(e.target.value)} className="date" />
             </div>
 
-            <div style={styles.filter}>
-                <div>Morning Slots</div>
+            <div className="filter">
+                <div style={{textJustify:"center"}}>
+                    <label>
+                        <input type="radio" value="morning" checked={slot=="morning"} onClick={()=>{setSlot("morning")}} />
+                        Morning
+                    </label>
+                    <label>
+                        <input type="radio" value="evening" checked={slot=="evening"} onClick={()=>{setSlot("evening")}} />
+                        Evening
+                    </label>
+                </div>
                 <div style={{display:"flex"}}>
                     <select style={{borderRadius:"0.5rem", cursor:"pointer", fontSize:"0.8rem", padding:"5px"}} onChange={(e)=>{setStatus1(e.target.value)}}>
                         <option>all</option>
@@ -63,11 +73,11 @@ const Records = () => {
                 </div>
             </div>
 
-            <div style={styles.slot}>
+            <div className="slot">
                 {
-                    record.filter( it => it.slot === "morning" && it.admissiondate === date && (it.status === status1 || status1 === "all") ).map((item) => {
+                    record.filter( it => it.slot === slot && it.admissiondate === date && (it.status === status1 || status1 === "all") ).map((item) => {
                             return (
-                                <div key={item.id} style={styles.flexItem}>
+                                <div key={item.id} className="flexItem flexitem12">
                                     
                                     <div style={{display:"flex", gap:"10px"}}>
                                         <div style={{marginBottom:"0px", display:"flex", alignItems:"center"}}><UserIcon/></div>
@@ -78,15 +88,15 @@ const Records = () => {
                                     </div>
 
                                     <div style={{display:"flex", gap: "1rem"}}>
-                                        {item.status === "pending" && <div style={{fontSize:"0.9rem", padding: "8px", border:"0.5px solid orange", borderRadius:"1rem", background:"#FFFACD", color:"#FFA500"}}>
+                                        {item.status === "pending" && <div style={{ padding: "8px", border:"0.5px solid orange", borderRadius:"1rem", background:"#FFFACD", color:"#FFA500"}}>
                                             {item.status}
                                         </div>}
 
-                                        {item.status === "approved" && <div style={{fontSize:"0.9rem", padding: "8px", border:"0.5px solid green", borderRadius:"1rem", background:"#90EE90", color:"#28a745"}}>
+                                        {item.status === "approved" && <div style={{ padding: "8px", border:"0.5px solid green", borderRadius:"1rem", background:"#90EE90", color:"#28a745"}}>
                                             {item.status}
                                         </div>}
 
-                                        {item.status === "cancelled" && <div style={{fontSize:"0.9rem", padding: "8px", border:"0.5px solid red", borderRadius:"1rem", background:"#FFB6C1", color:"#DC3545"}}>
+                                        {item.status === "cancelled" && <div style={{padding: "8px", border:"0.5px solid red", borderRadius:"1rem", background:"#FFB6C1", color:"#DC3545"}}>
                                             {item.status}
                                         </div>}
 
@@ -101,13 +111,13 @@ const Records = () => {
                 
                 {
                     record.filter((item) => item.admissiondate === date && item.slot === "morning" && (item.status === status1 || status1 === "all") ).length===0 && 
-                        <div style={styles.empty}>
+                        <div className="empty">
                             <div className="empty-bg-pic"></div>
                         </div>
                 }
             </div>
 
-            <div style={styles.filter}>
+            {/* <div className="filter">
                 <div>Evening Slots</div>
                 <div style={{display:"flex"}}>
                     <select style={{borderRadius:"0.5rem", cursor:"pointer", fontSize:"0.8rem", padding:"5px"}} onChange={(e)=>{setStatus2(e.target.value)}}>
@@ -117,13 +127,13 @@ const Records = () => {
                         <option>cancelled</option>
                     </select>
                 </div>
-            </div>
+            </div> */}
 
-            <div style={styles.slot}>
+            {/* <div className="slot">
                 {
                     record.filter( it => it.slot === "evening" && it.admissiondate === date && (it.status === status2 || status2 === "all") ).map((item) => {
                             return (
-                                <div key={item.id} style={styles.flexItem}>
+                                <div key={item.id} className="flexItem">
                                     
                                     <div style={{display:"flex", gap:"10px"}}>
                                         <div style={{marginBottom:"0px", display:"flex", alignItems:"center"}}><UserIcon/></div>
@@ -134,15 +144,15 @@ const Records = () => {
                                     </div>
 
                                     <div style={{display:"flex", gap: "1rem"}}>
-                                        {item.status === "pending" && <div style={{fontSize:"0.9rem", padding: "8px", border:"0.5px solid orange", borderRadius:"1rem", background:"#FFFACD", color:"#FFA500"}}>
+                                        {item.status === "pending" && <div style={{ padding: "8px", border:"0.5px solid orange", borderRadius:"1rem", background:"#FFFACD", color:"#FFA500"}}>
                                             {item.status}
                                         </div>}
 
-                                        {item.status === "approved" && <div style={{fontSize:"0.9rem", padding: "8px", border:"0.5px solid green", borderRadius:"1rem", background:"#90EE90", color:"#28a745"}}>
+                                        {item.status === "approved" && <div style={{ padding: "8px", border:"0.5px solid green", borderRadius:"1rem", background:"#90EE90", color:"#28a745"}}>
                                             {item.status}
                                         </div>}
 
-                                        {item.status === "cancelled" && <div style={{fontSize:"0.9rem", padding: "8px", border:"0.5px solid red", borderRadius:"1rem", background:"#FFB6C1", color:"#DC3545"}}>
+                                        {item.status === "cancelled" && <div style={{ padding: "8px", border:"0.5px solid red", borderRadius:"1rem", background:"#FFB6C1", color:"#DC3545"}}>
                                             {item.status}
                                         </div>}
 
@@ -157,13 +167,11 @@ const Records = () => {
                 
                 {
                     record.filter((item) => item.admissiondate === date && item.slot === "evening" && (item.status === status2 || status2 === "all") ).length===0 && 
-                        <div style={styles.empty}>
+                        <div className="empty">
                             <div className="empty-bg-pic"></div>
                         </div>
                 }
-            </div>
-
-        
+            </div> */}
 
             { !close && <Popup data={data} onClose={()=>{setClose(true)}} changeStatus={changeStatus} />}
             
@@ -199,11 +207,8 @@ const styles = {
         flexDirection: "column",
         overflowY: "auto",
         overflowX: "hidden",
-        // justifyContent: "center",
-        // alignContent: "center",
-        // alignItems: "center",
         width: "100%",
-        height: "20rem",
+        height: "30%",
     },
     filter: {
         display:"flex",
