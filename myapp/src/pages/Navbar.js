@@ -39,7 +39,7 @@ function Navbar() {
         <nav className='navbar'>
             <h2 className='title'>Xyz Hospitol Services</h2>
             <ul className='navLinks'>
-                <li className='navItem'><a href="home" style={{ color: 'white', textDecoration: "none" }}>Home</a></li>
+                <li className='navItem'><a href="/" style={{ color: 'white', textDecoration: "none" }}>Home</a></li>
                 { userType === "user" && <li className='navItem'><a href="#" onClick={()=>setAppontment(!appointment)} style={{ color: 'white', textDecoration: "none" }}>Appointments</a></li>}
                 <li className='navItem'><a href="#" onClick={()=>setReviews(!reviews)} style={{ color: 'white', textDecoration: "none" }}>Reviews</a></li>
                 <li className='navItem'><a href="#" onClick={handleLogOut} style={{ color: 'white', textDecoration: "none", marginRight:"1rem" }}>Logout</a></li>
